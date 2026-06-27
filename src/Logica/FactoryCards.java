@@ -1,6 +1,10 @@
 package Logica;
 
 import Dominio.Carta;
+import Dominio.Energy;
+import Dominio.Item;
+import Dominio.Pokemon;
+import Dominio.Supporter;
 
 public class FactoryCards {
 	public static Carta crearCartas(String linea) {
@@ -13,17 +17,21 @@ public class FactoryCards {
 		case "pokemon":
 			int daño = Integer.parseInt(partes[3]);
 			int cantEnergy = Integer.parseInt(partes[4]);
-			return null;
+			return new Pokemon(tipoCarta, rarezaC, daño, cantEnergy);
 		case "item":
 			int bonificacion = Integer.parseInt(partes[3]);
-		case "supoorter":
+			return new Item(tipoCarta, rarezaC, bonificacion);
+		case "supporter":
 			int efectoTurno = Integer.parseInt(partes[3]);
+			return new Supporter(tipoCarta, rarezaC, efectoTurno);
 		case "energy":
 			String elemento = partes[3];
+			return new Energy(tipoCarta, rarezaC, elemento);
 			
 		default:
-			break;
+			System.out.println("Tipo de carta no valido..");
+			return null;
 		}
-		return null;
+		
 	}
 }

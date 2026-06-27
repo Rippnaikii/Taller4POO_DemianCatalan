@@ -2,13 +2,17 @@ package Logica;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Scanner;
+
+import Dominio.Carta;
 
 public class SistemaCartas implements Sistema {
 	private static SistemaCartas sistema = null;
+	ArrayList<Carta> listCartas;
 	
 	private SistemaCartas() {
-		
+		this.listCartas = new ArrayList<Carta>();
 	}
 	
 	public static SistemaCartas getInstance() {
@@ -26,8 +30,8 @@ public class SistemaCartas implements Sistema {
 			while (sc.hasNext()) {
 				String linea = sc.nextLine().strip();
 				//Implementamos factory
-				FactoryCards.crearCartas(linea);
-				
+				Carta nuevaCarta = FactoryCards.crearCartas(linea);
+				listCartas.add(nuevaCarta);
 				
 			}
 		
