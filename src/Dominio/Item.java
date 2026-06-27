@@ -12,8 +12,8 @@ public class Item extends Carta {
 
 	@Override
 	public void aceptar(Visitor v) {
-		v.calcularPoder(this);
-		
+		int poder = v.calcularPoder(this);
+		super.setPoder(poder);
 	}
 
 	public int getBonificacion() {

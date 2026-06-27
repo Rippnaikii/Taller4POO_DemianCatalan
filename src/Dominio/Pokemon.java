@@ -13,8 +13,8 @@ public class Pokemon extends Carta{
 
 	@Override
 	public void aceptar(Visitor v) {
-		v.calcularPoder(this);
-		
+		int poder = v.calcularPoder(this);  //no estoy seguro si esto esta bien, pero funciona 
+		super.setPoder(poder);
 	}
 
 	public int getDaño() {

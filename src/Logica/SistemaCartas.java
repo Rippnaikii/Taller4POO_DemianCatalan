@@ -27,12 +27,14 @@ public class SistemaCartas implements Sistema {
 		try {
 			File f = new File("Sobres.txt");
 			Scanner sc = new Scanner(f);
+			Visitor calculador = new CardsVisitor();
 			while (sc.hasNext()) {
 				String linea = sc.nextLine().strip();
 				//Implementamos factory
 				Carta nuevaCarta = FactoryCards.crearCartas(linea);
-				listCartas.add(nuevaCarta);
 				
+				nuevaCarta.aceptar(calculador);
+				listCartas.add(nuevaCarta);
 			}
 		
 			
@@ -41,6 +43,11 @@ public class SistemaCartas implements Sistema {
 			e.printStackTrace();
 		}
 		
+	}
+
+	public ArrayList<Carta> getListCartas() {
+		// TODO Auto-generated method stub
+		return listCartas;
 	}
 
 }

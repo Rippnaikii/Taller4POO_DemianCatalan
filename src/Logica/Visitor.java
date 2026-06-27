@@ -6,8 +6,8 @@ import Dominio.Pokemon;
 import Dominio.Supporter;
 
 public interface Visitor {
-	void calcularPoder(Pokemon p);
-	void calcularPoder(Item i);
-	void calcularPoder(Supporter s);
-	void calcularPoder(Energy e);
+	int calcularPoder(Pokemon p);
+	int calcularPoder(Item i);
+	int calcularPoder(Supporter s);
+	int calcularPoder(Energy e);
 }

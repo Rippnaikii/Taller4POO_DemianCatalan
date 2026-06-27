@@ -17,16 +17,16 @@ public class FactoryCards {
 		case "pokemon":
 			int daño = Integer.parseInt(partes[3]);
 			int cantEnergy = Integer.parseInt(partes[4]);
-			return new Pokemon(tipoCarta, rarezaC, daño, cantEnergy);
+			return new Pokemon(nomCarta, rarezaC, daño, cantEnergy);
 		case "item":
 			int bonificacion = Integer.parseInt(partes[3]);
-			return new Item(tipoCarta, rarezaC, bonificacion);
+			return new Item(nomCarta, rarezaC, bonificacion);
 		case "supporter":
 			int efectoTurno = Integer.parseInt(partes[3]);
-			return new Supporter(tipoCarta, rarezaC, efectoTurno);
+			return new Supporter(nomCarta, rarezaC, efectoTurno);
 		case "energy":
 			String elemento = partes[3];
-			return new Energy(tipoCarta, rarezaC, elemento);
+			return new Energy(nomCarta, rarezaC, elemento);
 			
 		default:
 			System.out.println("Tipo de carta no valido..");

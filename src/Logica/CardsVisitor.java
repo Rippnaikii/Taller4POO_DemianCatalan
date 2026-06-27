@@ -8,27 +8,31 @@ import Dominio.Supporter;
 public class CardsVisitor implements Visitor {
 
 	@Override
-	public void calcularPoder(Pokemon p) {
-		// TODO Auto-generated method stub
+	public int calcularPoder(Pokemon p) {
+		return (p.getDaño()/p.getCantEnergy())*100;
+		//podriamos hacer el calculo y setear el poder aca mismo
+		/*
+		 * poder = [calculos]
+		 * p.setPoder(poder);  PERO NOSE SI ES MAS CORRECTO COMO ESTA O ASÍ 
+		 * 
+		 */
+	}
+
+	@Override
+	public int calcularPoder(Item i) {
+		return i.getBonificacion()*20;
 
 	}
 
 	@Override
-	public void calcularPoder(Item i) {
-		// TODO Auto-generated method stub
+	public int calcularPoder(Supporter s) {
+		return s.getEfectoTurno()*50;
 
 	}
 
 	@Override
-	public void calcularPoder(Supporter s) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void calcularPoder(Energy e) {
-		// TODO Auto-generated method stub
-
+	public int calcularPoder(Energy e) {
+		return 1;
 	}
 
 }
